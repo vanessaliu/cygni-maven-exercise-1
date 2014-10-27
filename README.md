@@ -46,3 +46,5 @@ Kör applikationen med `java -jar target/exercise-1-1.0-SNAPSHOT-jar-with-depend
 
 
 
+
+
