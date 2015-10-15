@@ -11,9 +11,22 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <slf4j.version>1.7.12</slf4j.version>
     </properties>
 
     <developers>
+        <developer>
+          <id>007</id>
+          <name>Chen Liu</name>
+          <email>chen.liu@cygni.se</email>
+          <url>http://www.chenliu.se</url>
+          <organization>cygni.se</organization>
+          <organizationUrl>http://www.cygni.se</organizationUrl>
+          <roles>
+            <role>Front end developer</role>
+          </roles>
+          <timezone>Sweden/Stockholm</timezone>
+        </developer>
     </developers>
 
     <dependencies>
@@ -22,8 +35,49 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
     </dependencies>
 
+    <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                    <configuration>
+                      <source>1.7</source>
+                      <target>1.7</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>2.6</version>
+                    <configuration>
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
+                        <archive>
+                            <manifest>
+                                <mainClass>se.cygni.training.maven.App</mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                    <executions>
+                        <execution>
+                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase> <!-- bind to the packaging phase -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+    </build>
 </project>
 
 
